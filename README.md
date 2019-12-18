@@ -32,7 +32,7 @@ Std_MFCCs: Standerd deviation of Mel-frequency cepstral coefficients.
 Max_MFCCs' : Maximum Mel-frequency cepstral coefficients.
 Mean_Magnitude: Mean magnitude. 
 Min_RMS: Minimum root mean square error.
-Std_RMS: Standerd deviation of the root mean square error.
+Std_RMS: Standard deviation of the root mean square error.
 
 
 
@@ -53,13 +53,10 @@ This was supposed to be the main dataset used to train and test the Machine lear
 - For the other three datasets, they were created manually by extracting acoustic properties/features from Audio files, so it was clean as well.
 
 ## Analysis
-* Overview the general steps you went through to analyze your data in order to test your hypothesis.
-* Document each step of your data exploration and analysis.
-* Include charts to demonstrate the effect of your work.
 * If you used Machine Learning in your final project, describe your feature selection process.
 
 ## Model Training and Evaluation
-* Describtion is in the [Workflow](#workflow).
+* Description is in the [Workflow](#workflow).
 
 ## Conclusion
 * After using different machine learning models to identify gender, the best accuracy that was achieved using the neural network model with accuracy of 92% for the audio files from the same source and an accuracy of 81.8 % for the recorded audio files.
@@ -107,7 +104,7 @@ Used Trello to keep track of the tasks done and those that were pending.
 - *This folder contains the deep learning models saved from the code.*
 
 #### audio_to_test:
-- *This folder contained the audio files that I used for creating the new voices dataset and the audio files used creat the datasets to test the accuracy of the model whether the recorded or the separated. (The audio files were deleted due to the size, the link for the downloaded Audio files is [Open Speech and Language Resources](http://www.openslr.org/45/))*
+- *It was a folder that contained the audio files that I used for creating the new voices dataset and the audio files used to create the datasets to test the accuracy of the model whether the recorded or the separated. (The audio files were deleted due to the size, the link for the downloaded Audio files is [Open Speech and Language Resources](http://www.openslr.org/45/))*
 
 
 ## Links
