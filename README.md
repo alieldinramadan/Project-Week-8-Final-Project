@@ -7,7 +7,7 @@
 
 ## Content
 - [Project Description](#project-description)
-- [Hypotheses / Questions](#hypotheses-questions)
+- [Hypotheses / Questions](#hypotheses-/-questions)
 - [Dataset](#dataset)
 - [Cleaning](#cleaning)
 - [Model Training and Evaluation](#model-training-and-evaluation)
