@@ -1,9 +1,9 @@
 <img src="https://bit.ly/2VnXWr2" alt="Ironhack Logo" width="100"/>
 
-# Title of My Project
-*[Your Name]*
+# Voice Gender Recognition using Machine Learning
+*Alieldin Ramadan*
 
-*[Your Cohort, Campus & Date]*
+*Data Analytics, Barcelona, October 2019*
 
 ## Content
 - [Project Description](#project-description)
@@ -19,22 +19,38 @@
 - [Links](#links)
 
 ## Project Description
-Write a short description of your project: 3-5 sentences about what your project is about, why you chose this topic (if relevant), and what you are trying to show.
+In this project the main objective was to train and test different machine learning models to be able to identify whether the speaker is a male or a female based on different features that were extracted from the voices, such as:
+Mean_freq: Mean frequency (in kHz).
+Mode_freq: Mode frequency (in kHz).
+First_quartile: First quartile frequency (in kHz).
+Kurtosis: kurtosis, a measure used to describe the distribution.
+Centroid_freq: Centroid frequency (in kHz), a measure that indicates where the center of mass of the spectrum is located frequency.
+Spectral_flatness_measure: Spectral flatness, provides a way to quantify how a sound is tone-like, as opposed to being noise-like.
+Mean_fundamental_freq: Mean fundamental frequency (in kHz), the lowest frequency of a periodic waveform (Pitch of a voice).
+Mean_MFCCs: Mean of Mel-frequency cepstral coefficients.
+Std_MFCCs: Standerd deviation of Mel-frequency cepstral coefficients.
+Max_MFCCs' : Maximum Mel-frequency cepstral coefficients.
+Mean_Magnitude: Mean magnitude. 
+Min_RMS: Minimum root mean square error.
+Std_RMS: Standerd deviation of the root mean square error.
+
+
 
 ## Hypotheses / Questions
-* What data/business/research/personal question you would like to answer?
-* What is the context for the question and the possible scientific or business application?
-* What are the hypotheses you would like to test in order to answer your question?  
-Frame your hypothesis with statistical/data languages (i.e. define Null and Alternative Hypothesis). You can use formulas if you want but that is not required.
+* Can we identify gender based on acoustic properties/features of the speaker?
+* What are the highly correlated acoustic properties/features to gender?
+* What are the main indecators to determine whether a voice is a male's of a female's?
 
 ## Dataset
-* Where did you get your data? If you downloaded a dataset (either public or private), describe where you downloaded it and include the command to load the dataset.
-* Did you build your own datset? If so, did you use an API or a web scraper? PRovide the relevant scripts in your repo.
-* For all types of datasets, provide a description of the size, complexity, and data types included in your dataset, as well as a schema of the tables if necessary.
-* If the question cannot be answered with the available data, why not? What data would you need to answer it better?
+[voices.csv dataset - Kaggle.com](https://www.kaggle.com/primaryobjects/voicegender)
+
+This was supposed to be the main dataset used to train and test the Machine learning models, but ended up not using it as I wasn't able to extract some of the features and the accuracy was low when testing it using other audio files. So I ended up creating a new dataset using the audio files downloaded from (Open Speech and Language Resources).
+
+[Open Speech and Language Resources](http://www.openslr.org/45/)
 
 ## Cleaning
-Describe your full process of data wrangling and cleaning. Document why you chose to fill missing values, extract outliers, or create the variables you did as well as your reasoning behind the process.
+- For the voices.csv from Kaggle, the dataset was clean, just changed the gender column from categorical to numerical.
+- For the other three datasets, they were created manually by extracting acoustic properties/features from Audio files, so it was clean as well.
 
 ## Analysis
 * Overview the general steps you went through to analyze your data in order to test your hypothesis.
@@ -43,30 +59,59 @@ Describe your full process of data wrangling and cleaning. Document why you chos
 * If you used Machine Learning in your final project, describe your feature selection process.
 
 ## Model Training and Evaluation
-*Include this section only if you chose to include ML in your project.*
-* Describe how you trained your model, the results you obtained, and how you evaluated those results.
+* Describtion is in the [Workflow](#workflow).
 
 ## Conclusion
-* Summarize your results. What do they mean?
-* What can you say about your hypotheses?
-* Interpret your findings in terms of the questions you try to answer.
+* After using different machine learning models to identify gender, the best accuracy that was achieved using the neural network model with accuracy of 92% for the audio files from the same source and an accuracy of 81.8 % for the recorded audio files.
+
+* The highly correlated acoustic properties/features to gender are:
+1) Mean of Mel-frequency cepstral coefficients
+2) First quartile frequency (in kHz)
+3) Maximum Mel-frequency cepstral coefficients
 
 ## Future Work
-Address any questions you were unable to answer, or any next steps or future extensions to your project.
+- Including more Audio files from more people to increase the accuracy of the model.
+- Records of children voices can be added and processed (Male, Female or child).
+- Speaker recognition.
 
 ## Workflow
-Outline the workflow you used in your project. What were the steps?
-How did you test the accuracy of your analysis and/or machine learning algorithm?
+The first intention was to work on the kaggle dataset and build a model that can identify gender and then test the accuracy of the model on recorded audio files. After cleaning the data and taining and fitting the models, the next step was to extract the same features from the recorded Audio files and test the accuracy of the models. It was difficult to extract the same features and when testing the accuracy of the model on the recorded audios, the accuracy was low.
+
+Downloaded a zipped file from *Open Speech and Language Resources* with 3843 audio files from 10 speakers, 5 females and 5 males. Separated 50 files out of the 3843 files, so I can use later for testing and used the other 3793 to create a new dataset with the features that I was successful in extracting.
+
+Then the newly created dataset was used to train and fit different models for accuracy. After getting some models with high accuracy the next step was to test the other 50 voices from the same zipped file, the results were good and the accuracy was high.
+
+To test the model further, I recorded the voices of 22 speakers, 11 females and 11 males (Friends and from TedX talks), processed the audio files and created a new dataframe with the extracted features, the highest accuracy that I got was 81% by using the Neural Network.
+the model is saved in the (*saved_models* folder, with the name *voices_new_recorded.model*.
 
 ## Organization
-How did you organize your work? Did you use any tools like a trello or kanban board?
+Used Trello to keep track of the tasks done and those that were pending.
 
-What does your repository look like? Explain your folder and file structure.
+### Inside the repository there is a folder called 'Voice Gender Recognition using Machine Learning' in which there are three folders:
+#### code:
+- *Audio processing - New Voices.ipynb - This file has the code used to process and extract the features from the new Audio files downloaded from (Open Speech and Language Resources).*
+- *Audio processing - Recorded voices.ipynb - This file has the code used to process and extract the features from the Audio files I recorded to test the accuracy of the models.*
+- *Audio processing - To Test.ipynb - This file has the code used to process and extract the features from some audio files that I separated from the Audio files downloaded from (Open Speech and Language Resources), so I can test the accuracy of the model on these files as well.*
+- *Voice Gender Recognition using Machine Learning - For the new voices Dataset.ipynb - This file has the code used to see the correlation between the features and the Gender and the training and testing of different models on the new voices datasets and at the end testing the accuracy of the models on the Audio files that were separated from the (Open Speech and Language Resources) Audio files.*
+- *Voice Gender Recognition using Machine Learning - For the recorded voices.ipynb - This file has the code used to see the correlation between the features and the Gender and the training and testing of different models on the new voices datasets and at the end testing the accuracy of the models on the Audio files that I recorded*
+- *Voice Gender Recognition using Machine Learning - Kaggle Voices Dataset.ipynb - This file has the code used to clean, analyze and creat, train and test models on the Voices dataset from Kaggle (These analysis were not helpful as the dataset was processed using R).*
+
+#### datasets:
+- *This folder contains four CSVs dataset:*
+- - 1- voices.csv                   ---->  The dataset downloaded from Kaggle.com
+- - 2- new_voices.csv               ---->  The dataset of the features extracted from the Audio files downloaded from (Open Speech and Language Resources)
+- - 3- voices_to_test.csv           ---->  The dataset of the features extracted from the 50 audio files separated from (Open Speech and Language Resources) audiofiles.
+- - 4- recorded_voices.csv          ---->  The dataset of the features extracted from the audio files I recorded.
+
+#### saved_models:
+- *This folder contains the deep learning models saved from the code.*
+
+#### audio_to_test:
+- *This folder contained the audio files that I used for creating the new voices dataset and the audio files used creat the datasets to test the accuracy of the model whether the recorded or the separated. (The audio files were deleted due to the size, the link for the downloaded Audio files is [Open Speech and Language Resources](http://www.openslr.org/45/))*
+
 
 ## Links
-Include links to your repository, slides and trello/kanban board. Feel free to include any other links associated with your project.
 
-
-[Repository](https://github.com/)  
-[Slides](https://slides.com/)  
-[Trello](https://trello.com/en)  
+[Repository](https://github.com/alieldinramadan/Project-Week-8-Final-Project)  
+[Slides](https://docs.google.com/presentation/d/1FOXif4Rt3PdMC8ju35J6V7yDKksEyFi0MLDijOav8KE/edit?usp=sharing)  
+[Trello](https://trello.com/b/A73tKFUM/project-5)  
