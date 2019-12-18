@@ -52,9 +52,6 @@ This was supposed to be the main dataset used to train and test the Machine lear
 - For the voices.csv from Kaggle, the dataset was clean, just changed the gender column from categorical to numerical.
 - For the other three datasets, they were created manually by extracting acoustic properties/features from Audio files, so it was clean as well.
 
-## Analysis
-* If you used Machine Learning in your final project, describe your feature selection process.
-
 ## Model Training and Evaluation
 * Description is in the [Workflow](#workflow).
 
