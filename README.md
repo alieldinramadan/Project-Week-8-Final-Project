@@ -36,6 +36,7 @@ Std_RMS: Standard deviation of the root mean square error.
 
 
 ## Hypotheses / Questions
+* Can we unlock our phones using voice recognition?
 * Can we identify gender based on acoustic properties/features of the speaker?
 * What are the highly correlated acoustic properties/features to gender?
 * What are the main indecators to determine whether a voice is a male's of a female's?
